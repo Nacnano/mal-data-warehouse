@@ -19,7 +19,7 @@ jobs:
       - name: Check Dependencies
         uses: |
         python3 -m pip install --upgrade pip
-        pip install -r requirements/requirements.txt
+        pip install -r requirements.txt
         pip check
 
       - name: Setup Environments
