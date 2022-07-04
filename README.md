@@ -3,6 +3,16 @@
 
 - So, the purposes of this project is mostly to train my Data Engineer skills
 
+## Requirements 
+
+1. Docker installed (the rest can be installed  using docker anyway)
+
+2. 4 GB RAM avalible (more than 8 GB is highly recommended)
+
+3. Enable your Docker RAM usage to >=4 GB 
+
+### Warning : This may cause lag or crash your device when you start running Docker
+
 
 ## How to Run (For Ubuntu)
 
