@@ -1,0 +1,26 @@
+name: 'Tesing Docker on Github Actions'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Initialize Docker
+        run: docker-compose up airflow-init
+
+      - name: Build Apache Airflow with Docker
+        run: docker build -t apache/airflow:2.1.0 .
+
+      - name: Start Airflow
+        run: docker-compose up
