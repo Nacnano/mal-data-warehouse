@@ -16,18 +16,26 @@
 
 ## How to Run (For Ubuntu)
 
-1. Initialize Airflow from Docker
+1. Setup Environments
+
+```
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+```
+
+2. Initialize Airflow from Docker
 
 ```
 docker-compose up airflow-init
 ```
 
-2. Build everything from Apache Airflow
+3. Build everything from Apache Airflow
+
 ```
 docker build -t apache/airflow:2.1.4 .
 ```
 
-3. Run Airflow
+4. Run Airflow
+
 ```
 docker-compose up
 ```

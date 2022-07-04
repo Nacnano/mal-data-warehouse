@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import os
 # from dotenv import load_dotenv
 # load_dotenv()
+# Bug from python setup T_T
 
 from airflow import DAG
 from airflow.models import Variable
