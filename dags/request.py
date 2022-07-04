@@ -28,7 +28,7 @@ with DAG(
     setup_folder = BashOperator(
         task_id = 'setup-folder-directory',
         # bash_command = f'cd {os.getenv("FOLDER_DIRECTORY")}'
-        bash_command = 'cd Documents/github/mal-data-warehouse'
+        bash_command = 'cd Documents/github/mal-data-warehouse' # <-- Delete this after succesfully debug dotenv python setup - @Nacnano
     )
     fetch_static_api = BashOperator(
         task_id='fetch-static-api', 
