@@ -19,7 +19,17 @@ with DAG(
     catchup=False
 ) as dag:
 
-    t1 = BashOperator(
-        task_id='fetch-api',
+    temporary_data = BashOperator(
+        task_id='fetch-static-api',
+        bash_command='python /dags/operators/temporary_data.py'
+    )
+    fetch_api = BashOperator(
+        task_id='fetch-mal-api',
         bash_command='python /dags/operators/fetch_api.py'
     )
+    process_data= BashOperator(
+        task_id='process_data',
+        bash_command='python /dags/operators/process_data.py'
+    )
+
+temporary_data >> process_data
