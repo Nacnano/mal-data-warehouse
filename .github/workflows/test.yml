@@ -6,8 +6,8 @@ on:
     branches:
       - main
   pull_request:
-  schedule:
-    - cron: '0 * * * *'
+  # schedule:
+  #   - cron: '0 * * * *'
 
 jobs:
   testing:
@@ -38,3 +38,6 @@ jobs:
 
       - name: Start Airflow
         run: docker-compose up
+      
+      - name: Run Services
+        run: docker run -t --rm --name mal-data-warehouse apache/airflow
