@@ -19,11 +19,11 @@ default_args = {
 with DAG(
     'anime-data-warehouse',
     default_args=default_args,
-    description='Request myanimelist data from API',
+    description='A request for anime database from API',
     schedule_interval=timedelta(minutes=1),
     start_date=days_ago(1),
     catchup=False,
-    tags=['anime', 'myanimelist', 'testing', 'mal']
+    tags=['anime', 'myanimelist', 'mal', 'anilist']
 ) as dag:
 
     setup_folder = BashOperator(
@@ -44,4 +44,4 @@ with DAG(
         bash_command='python3 /dags/operators/process_data.py'
     )
 
-setup_folder >> fetch_static_api >> process_data >> fetch_mal_api
+setup_folder >> fetch_static_api >> process_data >> fetch_mal_api 
