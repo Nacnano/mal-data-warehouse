@@ -44,4 +44,4 @@ with DAG(
         bash_command='python3 /dags/operators/process_data.py'
     )
 
-setup_folder >> fetch_static_api >> process_data >> fetch_mal_api 
+setup_folder >> fetch_static_api >> process_data >> fetch_mal_api
