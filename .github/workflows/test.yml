@@ -36,8 +36,8 @@ jobs:
       - name: Build Apache Airflow with Docker
         run: docker build -t apache/airflow:2.1.0 .
 
-      - name: Start Airflow
-        run: docker-compose up
+      # - name: Start Airflow
+      #   run: docker-compose up
       
       - name: Run Services
-        run: docker run -t --rm --name mal-data-warehouse apache/airflow
+        run: docker exec -it mal-data-warehouse-worker-1 bash
