@@ -41,7 +41,7 @@
 #
 # Feel free to modify this file to suit your needs.
 ---
-version: '2.1'
+version: '3.3'
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
@@ -98,21 +98,21 @@ services:
       retries: 50
     restart: always
 
-  airflow-webserver:
-    <<: *airflow-common
-    command: webserver
-    ports:
-      - 8080:8080
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
-    restart: always
-    depends_on:
-      <<: *airflow-common-depends-on
-      airflow-init:
-        condition: service_completed_successfully
+  # airflow-webserver:
+  #   <<: *airflow-common
+  #   command: webserver
+  #   ports:
+  #     - 8080:8080
+  #   healthcheck:
+  #     test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 5
+  #   restart: always
+  #   depends_on:
+  #     <<: *airflow-common-depends-on
+  #     airflow-init:
+  #       condition: service_completed_successfully
 
   airflow-scheduler:
     <<: *airflow-common

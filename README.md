@@ -51,6 +51,11 @@ sudo docker exec -ti mal-data-warehouse-airflow-worker-1 bash
 Note (Not Recommended): if you can't run as regular user, try using "sudo" to run as a root user.
 
 
+Trigger Airflow
+
+```
+airflow dags trigger anime-data-warehouse
+```
 
 ## User Interface 
 
