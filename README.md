@@ -40,6 +40,14 @@ docker build -t apache/airflow:2.1.4 .
 docker-compose up
 ```
 
+5. Execute Airflow using Bash in Docker
+
+(Now you are in the Docker)
+
+```
+sudo docker exec -ti mal-data-warehouse-airflow-worker-1 bash
+```
+
 Note (Not Recommended): if you can't run as regular user, try using "sudo" to run as a root user.
 
 ## User Interface 

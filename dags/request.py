@@ -11,13 +11,16 @@ default_args = {
     'owner': 'nacnano',
     'depends_on_past': False,
     'retries': 5,
-    'retry_delay': timedelta(seconds=1),
+    'email': ['airflow@example.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retry_delay': timedelta(minutes=1),
 }
 with DAG(
     'anime-data-warehouse',
     default_args=default_args,
     description='A request for anime database from API',
-    schedule_interval=timedelta(minutes=1),
+    schedule_interval="0 * * * *",
     start_date=days_ago(0),
     catchup=False,
     tags=['anime', 'myanimelist', 'mal', 'anilist']
@@ -32,10 +35,10 @@ with DAG(
         task_id='fetch-static-api', 
         bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/temporary_data.py'
     )
-    fetch_mal_api = BashOperator(
-        task_id='fetch-mal-api',
-        bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/fetch_api.py'
-    )
+    # fetch_mal_api = BashOperator(
+    #     task_id='fetch-mal-api',
+    #     bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/fetch_api.py'
+    # )
     process_data= BashOperator(
         task_id='process_data',
         bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/process_data.py'
