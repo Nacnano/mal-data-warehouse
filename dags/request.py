@@ -21,7 +21,7 @@ default_args = {
     'retry_delay': timedelta(minutes=1),
 }
 with DAG(
-    'anime-data-warehouse',
+    'mal-data-warehouse',
     default_args=default_args,
     description='A request for anime database from API',
     schedule_interval="0 * * * *",
