@@ -11,9 +11,9 @@ default_args = {
     'owner': 'nacnano',
     'depends_on_past': False,
     'retries': 5,
-    'email': ['airflow@example.com'],
-    'email_on_failure': False,
-    'email_on_retry': False,
+    'email': ['chotpisit080916c@gmail.com'],
+    'email_on_failure': True,
+    'email_on_retry': True,
     'retry_delay': timedelta(minutes=1),
 }
 with DAG(
