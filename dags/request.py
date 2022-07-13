@@ -34,12 +34,12 @@ with DAG(
     setup_folder = BashOperator(
         task_id = 'setup-folder-directory',
         # bash_command = f'cd {os.getenv("FOLDER_DIRECTORY")}',
-        # bash_command = 'ls | echo "HOI"',
-        bash_command = 'cd /home/nacnano/Documents/github/mal-data-warehouse', # <-- Delete this after succesfully debug dotenv python setup - @Nacnano
+        bash_command = 'pwd | ls | whoami | echo "HOI"',
+        # bash_command = 'cd /home/nacnano/Documents/github/mal-data-warehouse', # <-- Delete this after succesfully debug dotenv python setup - @Nacnano
     )
-    fetch_static_api = PythonOperator(
+    fetch_static_data = PythonOperator(
         task_id='fetch-static-api', 
-        python_callable=fetch_static_api,
+        python_callable=fetch_static_data,
         # bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/temporary_data.py',
     )
     process_data= PythonOperator(
@@ -48,4 +48,4 @@ with DAG(
         # bash_command='python3 /home/nacnano/Documents/github/mal-data-warehouse/dags/operators/process_data.py',
     )
 
-setup_folder >> fetch_static_api >> process_data
+setup_folder >> fetch_static_data >> process_data

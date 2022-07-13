@@ -3,7 +3,7 @@ import requests
 import json
 import pandas as pd
 
-def fetch_static_api():
+def fetch_static_data():
     response = pd.read_csv("https://raw.githubusercontent.com/practical-jupyter/sample-data/master/anime/anime.csv")
     
     if not os.path.exists("/home/nacnano/Documents/github/mal-data-warehouse/data"):
