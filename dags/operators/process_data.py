@@ -7,4 +7,3 @@ def process_data():
     
     end_path = "/home/nacnano/Documents/github/mal-data-warehouse/data/unheard_anime.csv"
     new_df.to_csv(end_path, index=False)
-    
