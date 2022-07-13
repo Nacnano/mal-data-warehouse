@@ -14,11 +14,11 @@ from operators.temporary_data import fetch_static_api
 default_args = {
     'owner': 'nacnano',
     'depends_on_past': False,
-    'retries': 5,
+    'retries': 4,
     'email': ['chotpisit080916c@gmail.com'],
     'email_on_failure': True,
     'email_on_retry': True,
-    'retry_delay': timedelta(minutes=1),
+    'retry_delay': timedelta(seconds=15),
 }
 with DAG(
     'mal-data-warehouse',
@@ -27,7 +27,8 @@ with DAG(
     schedule_interval="0 * * * *",
     start_date=days_ago(0),
     catchup=False,
-    tags=['anime', 'myanimelist', 'mal', 'anilist']
+    is_paused_upon_creation=True,
+    tags=['anime', 'myanimelist', 'mal', 'anilist'],
 ) as dag:
 
     # setup_folder = BashOperator(
